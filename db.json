@@ -1,0 +1,22 @@
+{
+  "travelTrackerData": [
+    {
+      "from": "New York, NY, USA",
+      "to": "Los Angeles, CA, USA",
+      "startDate": "2024-12-09",
+      "endDate": "2024-12-06"
+    },
+    {
+      "from": "New York, NY, USA",
+      "to": "Los Angeles, CA, USA",
+      "startDate": "2024-12-03",
+      "endDate": "2024-11-06"
+    },
+    {
+      "from": "New York, NY, USA",
+      "to": "Los Angeles, CA, USA",
+      "startDate": "2024-12-03",
+      "endDate": "2024-11-06"
+    }
+  ]
+}

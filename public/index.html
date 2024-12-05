@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Wrapped</title>
+</head>
+<body>
+    <section>
+        <h1>Travel Wrapped</h1>
+        <p>Enter the location and date of your 2024 trips!</p>
+    </section>
+    
+    <section>
+        <h1>Enter Location and Date</h1>
+        <form id="dataForm">
+            <div id="trip-container">
+                <div class="trip">
+            <label for="from">From:</label>
+            <input type="text" id="from" name="from" required>
+            <label for="to">To:</label>
+            <input type="text" id="to" name="to" required>
+            <label for="startDate">Start Date:</label>
+            <input type="date" id="startdate" name="startdate" required>
+            <label for="endDate">End Date:</label>
+            <input type="date" id="enddate" name="enddate" required>
+            <button type="button" class="remove-trip">Remove Trip</button>
+                </div>
+            </div>
+            <button type="button" id="add-trip">Add a Trip</button>
+            <button id="submit_button" type="submit">Submit</button>
+        </form>
+        <p id="output"></p>
+    </section>
+
+    <!-- Google Place Autocomplete API -->
+    <script>
+        let autocomplete;
+        function initAutocomplete(){
+            autocompleteFrom = new google.maps.places.Autocomplete(
+                document.getElementById('from'),
+                {
+                    types: ['(cities)'],
+                    fields: ['place_id', 'geometry', 'name']
+                    
+                }
+            );
+            autocompleteTo = new google.maps.places.Autocomplete(
+                document.getElementById('to'),
+                {
+                    types: ['(cities)'],
+                    fields: ['place_id', 'geometry', 'name']
+                    
+                }
+            );
+        }
+    </script>
+   
+
+    <script async
+     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCt-53S891Ypgrkju1uwhgqLkrq-4kCSIQ&loading=async&libraries=places&callback=initAutocomplete">
+</script>
+    <script src="app.js"></script>
+</body>
+</html>
