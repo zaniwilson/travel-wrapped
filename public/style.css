@@ -1,0 +1,149 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Oswald', sans-serif;
+}
+
+/* Header Section */
+section:first-of-type {
+    background-color: #fffce0;
+    padding: 20px 50px;
+    display: flex;
+    align-items: center;
+}
+
+section:first-of-type h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 3rem;
+    margin: 0;
+}
+
+.airplane {
+    width: 50px;
+    height: auto;
+    margin-left: 10px;
+}
+
+/* Images Section */
+.images {
+    background-color: #cbe0e6;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.images img {
+    width: 30%;
+    aspect-ratio: 5/7;  /* Set 5:7 aspect ratio */
+    object-fit: cover;
+    border-radius: 0;   /* Remove rounded corners */
+}
+
+/* Description Section */
+section:nth-of-type(3) {
+    background-color: white;
+    font-size: 25px;
+    padding: 30px 50px;
+}
+
+section.description p {
+    font-family: 'Lora', serif;
+    color: #e24846;
+}
+
+/* Form Section */
+section:nth-of-type(4) {
+    background-color: #cbe0e6;
+    padding: 40px 20px;
+}
+
+form {
+    background-color: white;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+section.form h1 {
+    font-size: 45px;
+    text-align: center;
+}
+
+.trip {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+/* New styles for transport/trip type selects */
+.trip select[name="transport-mode"],
+.trip select[name="trip-type"] {
+    grid-column: 2;  /* Place on right side */
+    justify-self: start;  /* Align to start of grid cell */
+}
+
+/* Style for remove trip button */
+.remove-trip {
+    grid-column: 1 / -1;  /* Span full width */
+    width: 100%;
+}
+
+/* Update add trip and submit buttons */
+#add-trip {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+input, select {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* All buttons */
+button {
+    background-color: #e24846;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+#submit_button {
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* Footer */
+footer {
+    background-color: #fffce0;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .images {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .images img {
+        width: 90%;
+    }
+
+    .trip {
+        grid-template-columns: 1fr;
+    }
+}

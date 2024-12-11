@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="travel-summary.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barrio&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barrio&family=Lora:ital,wght@0,400..700;1,400..700&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <title>Destination Digest</title>
+</head>
+<body>
+    <section class="header">
+        <h1>Destination Digest</h1>
+        <img src="../airplane.png" alt="airplane" class="airplane">
+    </section>
+    <section class="world-map">
+        <h1>Oh the places you have gone!</h1>
+        <br>
+        <div id="world-map"></div>
+    </section>
+    <section id="travel-summary">
+        <h2>This Year You've Traveled</h2>
+        <p id="km-traveled"></p>
+        <img src="icons/earth.webp" alt="earth" class="earth">
+        <p id="percentage-traveled"></p>
+        <h2>of the Earth's Circumference</h2>
+    </section>
+    <section id="travel-mode">
+        <div>
+            <h2>Your Preferred Travel Mode</h2>
+            <p id="preferred-mode"></p>
+        </div>
+        <div class="travel-mode-content">
+            <h2>You Took</h2>
+            <p id="trip-types"></p>
+        </div>
+    </section>
+    <section id="days-away-section">
+        <div id="days-away-chart-container">
+            <div id="days-away-chart"></div>
+            <h2>of the Year</h2>
+        </div>
+        <div id="days-away-container">
+            <p id="days-away"></p>
+            <h2>Days Were Spent Away from Home</h2>
+            <p id="days-away-percentage"></p>
+        </div>
+    </section>
+    <section id="travel-profile">
+        <h2>Your Travel Profile</h2>
+        <h3 id="travel-profile-heading"></h3>
+        <div id="travel-profile-container">
+            <div id="travel-profile-image">
+                <div class="profile-icon" id="length-profile"></div>
+                <div class="profile-icon" id="mode-profile"></div>
+                <div class="profile-icon" id="distance-profile"></div>
+                <p id="travel-profile-text"></p>
+            </div>
+        </div>
+    </section>
+    <section class="footer">
+        <p>© 2024 Destination Digest</p>
+    </section>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="travel-summary.js"></script>
+</body>
+</html>

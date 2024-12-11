@@ -3,32 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Travel Wrapped</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barrio&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barrio&family=Lora:ital,wght@0,400..700;1,400..700&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <title>Destination Digest</title>
 </head>
 <body>
-    <section>
-        <h1>Travel Wrapped</h1>
-        <p>Enter the location and date of your 2024 trips!</p>
+    <section class="header">
+        <h1>Destination Digest</h1>
+        <img src="airplane.png" alt="airplane" class="airplane">
     </section>
-    
-    <section>
-        <h1>Enter Location and Date</h1>
+    <section class="images">
+        <img src="images/beachAD.jpg" alt="beach">
+        <img src="images/bogata.jpg" alt="city view of bogata"> 
+        <img src="images/nyc.jpg" alt="one world trade center in new york city">
+        <!-- <img src="images/burj.jpg" alt="burj khalifa">
+        <img src="images/sinkhole.jpg" alt="people swimming in a sinkhole">
+        <img src="images/lagos.jpg" alt="cave in lagos, portugal">
+        <img src="images/vancouver.jpg" alt="trees in vancouver, canada">
+        <img src="images/yosemite.jpg" alt="yosemite national park"> -->
+    </section>
+    <section class="description">
+        <p>Celebrate your year of adventures with your Destination Digest! This interactive webpage transforms your travel data into a stunning, personalized summary. Reflect on the journeys you've taken and uncover a unique story of where the year has taken you.</p>
+    </section>
+    <section class="form">
+        <h1>Enter Your Trips</h1>
         <form id="dataForm">
             <div id="trip-container">
-                <div class="trip">
-            <label for="from">From:</label>
-            <input type="text" id="from" name="from" required>
-            <label for="to">To:</label>
-            <input type="text" id="to" name="to" required>
-            <label for="startDate">Start Date:</label>
-            <input type="date" id="startdate" name="startdate" required>
-            <label for="endDate">End Date:</label>
-            <input type="date" id="enddate" name="enddate" required>
-            <button type="button" class="remove-trip">Remove Trip</button>
+                <div class="trip" id="trip-form">
+                    <label for="orgin">From:</label>
+                    <input type="text" id="orgin" name="orgin" required>
+                    <label for="destination">To:</label>
+                    <input type="text" id="destination" name="destination" required>
+                    <label for="startDate">Start Date:</label>
+                    <input type="date" id="startdate" name="startdate" required>
+                    <label for="endDate">End Date:</label>
+                    <input type="date" id="enddate" name="enddate" required>
+                    <label for="transport-mode">Transport Mode:</label>
+                    <select id="transport-mode" name="transport-mode" required>
+                        <option value="car">Car</option>
+                        <option value="bus">Bus</option>
+                        <option value="rail">Rail</option>
+                        <option value="plane">Plane</option>
+                    </select>
+                    <select id="trip-type" name="trip-type" required>
+                        <option value="one-way">One Way</option>
+                        <option value="round-trip">Round Trip</option>
+                    </select>
                 </div>
+                <button type="button" id="add-trip">Add a Trip</button>
+                <button id="submit_button" type="submit">Submit</button>
             </div>
-            <button type="button" id="add-trip">Add a Trip</button>
-            <button id="submit_button" type="submit">Submit</button>
         </form>
         <p id="output"></p>
     </section>
@@ -37,16 +66,16 @@
     <script>
         let autocomplete;
         function initAutocomplete(){
-            autocompleteFrom = new google.maps.places.Autocomplete(
-                document.getElementById('from'),
+            autocompleteOrgin = new google.maps.places.Autocomplete(
+                document.getElementById('orgin'),
                 {
                     types: ['(cities)'],
                     fields: ['place_id', 'geometry', 'name']
                     
                 }
             );
-            autocompleteTo = new google.maps.places.Autocomplete(
-                document.getElementById('to'),
+            autocompleteDestination = new google.maps.places.Autocomplete(
+                document.getElementById('destination'),
                 {
                     types: ['(cities)'],
                     fields: ['place_id', 'geometry', 'name']
@@ -55,11 +84,11 @@
             );
         }
     </script>
-   
-
-    <script async
-     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCt-53S891Ypgrkju1uwhgqLkrq-4kCSIQ&loading=async&libraries=places&callback=initAutocomplete">
-</script>
+    
+ 
+    <footer>
+        <p>© 2024 Destination Digest</p>
+    </footer>
     <script src="app.js"></script>
 </body>
 </html>

@@ -1,0 +1,202 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Oswald', sans-serif;
+}
+
+/* Header Section */
+section.header {
+    background-color: #fffce0;
+    padding: 20px 50px;
+    display: flex;
+    align-items: center;
+}
+
+section.header h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 3rem;
+    margin: 0;
+}
+
+.airplane {
+    width: 50px;
+    height: auto;
+    margin-left: 10px;
+}
+
+/* ... existing code ... */
+
+/* World Map Section */
+section.world-map {
+    background-color: white;
+    padding: 30px 50px;
+    text-align: center;
+    position: relative;  /* Add this to contain absolute positioning */
+}
+
+#world-map {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#world-map button {
+    position: absolute;
+    bottom: 20px;  /* Adjust this value as needed */
+    left: 20px;    /* Adjust this value as needed */
+    background-color: #e24846;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+#world-map button:hover {
+    opacity: 0.9;
+}
+
+/* ... rest of existing code ... */
+
+/* Travel Summary Section */
+#travel-summary {
+    background-color: #fffce0;
+    padding: 30px 50px;
+    text-align: center;
+}
+
+/* Travel Mode Section */
+#travel-mode {
+    background-color: white;
+    padding: 30px 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    max-width: none;
+    margin-left: 200px;
+}
+
+.travel-mode-content {
+    padding-left: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+#travel-mode svg {
+    width: 45%;
+    min-width: 300px;
+}
+
+#travel-mode div:last-child {
+    width: 45%;
+    text-align: right;
+}
+
+/* Days Away Section */
+#days-away-section {
+    background-color: #cbe0e6;
+    padding: 40px 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+#days-away-chart {
+    width: 45%;
+}
+
+#days-away-chart svg {
+    fill: #311f26;
+    margin: 20px;
+    padding-left: 20px;
+}
+
+#days-away-section div:last-child {
+    width: 45%;
+    text-align: right;
+    padding-right: 20px;
+}
+
+#days-away-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Travel Profile Section */
+#travel-profile {
+    background-color: white;
+    padding: 30px 50px;
+    text-align: center;
+}
+
+#travel-profile-container {
+    background-color: #cbe0e6;
+    border-radius: 15px;
+    padding: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.profile-icon {
+    display: inline-block;
+    margin: 0 20px;
+}
+
+#travel-profile-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.profile-icon img {
+    width: 200px;
+    height: auto;
+}
+
+/* Footer Section */
+section.footer {
+    background-color: #fffce0;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #travel-mode, #days-away-section {
+        flex-direction: column;
+    }
+
+    #travel-mode svg, 
+    #travel-mode div:last-child,
+    #days-away-chart,
+    #days-away-section div:last-child {
+        width: 100%;
+    }
+
+    .profile-icon {
+        margin: 10px;
+    }
+}
+
+/* Apply Lora font and remove bold styling from all headings */
+h1, h2, h3 {
+    font-family: 'Lora', serif;
+    font-weight: normal;
+}
+
+/* Make paragraph text bigger and bold */
+p {
+    font-size: 2rem;  /* Makes text bigger - adjust this value as needed */
+    font-weight: bold;
+}
+
+#travel-profile-container p {
+    font-weight: normal;
+}
