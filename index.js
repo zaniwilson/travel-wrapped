@@ -11,7 +11,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const GOOGLE_API_KEY = process.env.GOOGLE_API_KEY;
-const RAPID_API_KEY = process.env.RAPID_API_KEY;
+// const RAPID_API_KEY = process.env.RAPID_API_KEY;
 
 const defaultData = { travelTrackerData:[] };
 const adapter = new JSONFile('db.json');
@@ -40,7 +40,7 @@ function calculateHaversineDistance(lat1, lon1, lat2, lon2) {
 }
 
 app.post('/activity', async (req, res) => {
-    console.log(req.body);
+    // console.log(req.body);
     let trips = req.body;
     
     for (const trip of trips) {
@@ -170,6 +170,11 @@ app.get('/api/travel-data', async (req, res) => {
     res.json(db.data.travelTrackerData);
 });
 
-app.listen(3000, ()=>{
-    console.log('listening at localhost:3000');
+// app.listen(3000, ()=>{
+//     console.log('listening at localhost:3000');
+// });
+
+let port = process.env.PORT || 3000;
+app.listen(port, ()=>{
+    console.log('listening at localhost:' + port);
 });

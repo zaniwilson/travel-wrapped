@@ -24,7 +24,10 @@ section.header h1 {
     margin-left: 10px;
 }
 
-/* ... existing code ... */
+#header-title {
+    color: #e24846;
+    font-size: 2.5rem;
+}
 
 /* World Map Section */
 section.world-map {
@@ -67,66 +70,55 @@ section.world-map {
 
 /* Travel Mode Section */
 #travel-mode {
-    background-color: white;
-    padding: 30px 50px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
+    column-gap: 50px;
+    background-color: white;
+    column-gap: 20px;
+}
+
+#preferred-travel-mode {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    max-width: none;
-    margin-left: 200px;
+    width: 45%;
 }
 
 .travel-mode-content {
-    padding-left: 50px;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-between;
-}
-
-#travel-mode svg {
-    width: 45%;
-    min-width: 300px;
-}
-
-#travel-mode div:last-child {
-    width: 45%;
-    text-align: right;
-}
-
-/* Days Away Section */
-#days-away-section {
-    background-color: #cbe0e6;
-    padding: 40px 80px;
-    display: flex;
     justify-content: center;
     align-items: center;
-    gap: 40px;
-}
-
-#days-away-chart {
     width: 45%;
 }
-
-#days-away-chart svg {
-    fill: #311f26;
-    margin: 20px;
-    padding-left: 20px;
+/* Days Away Section */
+#days-away-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    column-gap: 50px;
+    background-color: #cbe0e6;
+    padding: 20px 0 20px 0;
 }
 
-#days-away-section div:last-child {
-    width: 45%;
-    text-align: right;
-    padding-right: 20px;
-}
-
-#days-away-container {
+#days-away-chart-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    width: 45%;
 }
+
+#days-away-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    width: 45%;
+    height: 45%;
+}    
 
 /* Travel Profile Section */
 #travel-profile {
@@ -160,11 +152,15 @@ section.world-map {
     height: auto;
 }
 
+
 /* Footer Section */
 section.footer {
     background-color: #fffce0;
     padding: 20px;
     text-align: center;
+    p{
+        font-size: 1rem;
+    }
 }
 
 /* Responsive Design */
@@ -199,4 +195,41 @@ p {
 
 #travel-profile-container p {
     font-weight: normal;
+}
+
+h3{
+    color: #e24846;
+    font-weight: bold;
+}
+
+/* Animation classes */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Apply animations to sections */
+section.world-map,
+#travel-summary,
+#travel-mode,
+#days-away-section,
+#travel-profile {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+section.world-map.visible,
+#travel-summary.visible,
+#travel-mode.visible,
+#days-away-section.visible,
+#travel-profile.visible {
+    opacity: 1;
+    transform: translateY(0);
 }

@@ -1,4 +1,4 @@
-console.log("document is ready");
+// console.log("document is ready");
 
 // At the top of your file with other constants
 const PROFILE_IMAGES = {
@@ -14,8 +14,7 @@ const PROFILE_IMAGES = {
 fetch('/api/travel-data')
     .then(response => response.json())
     .then(data => {
-        console.log('Loaded data:', data); // To verify the data is loading
-        // Work with your data and SVG here
+        // console.log('Loaded data:', data); // Commented out data verification
         totalDistance(data);
         travelMode(data);
         createWorldMap(data);
@@ -26,7 +25,31 @@ fetch('/api/travel-data')
         console.error('Error loading the data:', error);
     });
 
+// Set up the Intersection Observer
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, {
+    threshold: 0.65
+});
 
+// Observe all sections that should animate
+document.addEventListener('DOMContentLoaded', () => {
+    const sections = document.querySelectorAll(`
+        section.world-map,
+        #travel-summary,
+        #travel-mode,
+        #days-away-section,
+        #travel-profile
+    `);
+    
+    sections.forEach(section => {
+        observer.observe(section);
+    });
+});
 
 function totalDistance(distanceData) {
     let total = 0;
@@ -38,7 +61,7 @@ function totalDistance(distanceData) {
     const kilometers = Math.floor((total / 1000));
     const readableDistance = `${kilometers} km`;
     
-    console.log(readableDistance);
+    // console.log(readableDistance);  // Commented out distance logging
     let kmTraveled = document.getElementById('km-traveled');
     kmTraveled.innerHTML = readableDistance;
     
@@ -62,7 +85,7 @@ function travelMode(modeData) {
         .reduce((a, b) => a[1] > b[1] ? a : b)[0];
 
     let travelMode = document.getElementById('preferred-mode');
-    travelMode.innerHTML = mostCommonMode;
+    travelMode.innerHTML = mostCommonMode.charAt(0).toUpperCase() + mostCommonMode.slice(1).toLowerCase();
 
     let tripTypes = document.getElementById('trip-types');
     
