@@ -2,35 +2,18 @@
   "travelTrackerData": [
     {
       "origin": "New York, NY, USA",
-      "destination": "Abu Dhabi - United Arab Emirates",
-      "startDate": "2024-12-11",
-      "endDate": "2024-12-14",
-      "transportMode": "plane",
-      "tripType": "round-trip",
-      "destinationLat": 24.453884,
-      "destinationLng": 54.3773438,
-      "distance": "22042 km",
-      "duration": "27 hours 33 minutes",
-      "distanceValue": 22042180,
-      "durationValue": 99190,
-      "isApproximation": true,
+      "destination": "Newark, NJ, USA",
+      "startDate": "2024-12-03",
+      "endDate": "2024-12-06",
+      "transportMode": "bus",
+      "tripType": "one-way",
+      "destinationLat": 40.7356284,
+      "destinationLng": -74.1722128,
+      "distance": "16.3 km",
+      "duration": "30 mins",
+      "distanceValue": 16252,
+      "durationValue": 1790,
       "tripLength": 3
-    },
-    {
-      "origin": "New York, NY, USA",
-      "destination": "Palermo, PA, Italy",
-      "startDate": "2024-12-12",
-      "endDate": "2025-02-16",
-      "transportMode": "plane",
-      "tripType": "round-trip",
-      "destinationLat": 38.1156864,
-      "destinationLng": 13.3614635,
-      "distance": "14351 km",
-      "duration": "17 hours 56 minutes",
-      "distanceValue": 14351300,
-      "durationValue": 64580,
-      "isApproximation": true,
-      "tripLength": 66
     }
   ]
 }

@@ -19,7 +19,15 @@ const db = new Low(adapter, defaultData)
 
 let travelData = [];
 
-app.use('/', express.static('public'));
+app.get('/', async (req, res, next) => {
+    // Clear the database when accessing the main page
+    db.data.travelTrackerData = [];
+    await db.write();
+    res.sendFile('index.html', { root: './public' });
+});
+
+// Serve other static files without clearing the database
+app.use(express.static('public'));
 
 app.use(express.json());
 

@@ -8,6 +8,9 @@ window.addEventListener('load', () => {
     addTripButton.addEventListener('click', () => {
         let orginid = generateRandomString(5)
         let destinationid = generateRandomString(5)
+        let startDateId = `startdate-${generateRandomString(3)}`
+        let endDateId = `enddate-${generateRandomString(3)}`
+        
         const newTrip = document.createElement('div');
         newTrip.classList.add('trip');
         newTrip.innerHTML = `
@@ -16,9 +19,9 @@ window.addEventListener('load', () => {
             <label for="destination">To:</label>
             <input id="${destinationid}" type="text" name="destination" required>
             <label for="startDate">Start Date:</label>
-            <input type="date" name="startdate" required>
+            <input type="date" id="${startDateId}" name="startdate" required>
             <label for="endDate">End Date:</label>
-            <input type="date" name="enddate" required>
+            <input type="date" id="${endDateId}" name="enddate" required>
             <label for="transport-mode">Transport Mode:</label>
             <select id="transport-mode" name="transport-mode" required>
                 <option value="car">Car</option>
@@ -33,6 +36,27 @@ window.addEventListener('load', () => {
           <button type="button" class="remove-trip">Remove Trip</button>
         `;
         tripContainer.appendChild(newTrip);
+
+        // Add date validation logic
+        const startDateInput = document.getElementById(startDateId);
+        const endDateInput = document.getElementById(endDateId);
+
+        // Set maximum date for end date to today
+        const today = new Date().toISOString().split('T')[0];
+        endDateInput.max = today;
+
+        startDateInput.addEventListener('change', (e) => {
+            // Set minimum date for end date input to the selected start date
+            endDateInput.min = e.target.value;
+            
+            // Clear end date if it's before start date
+            if (endDateInput.value && endDateInput.value < e.target.value) {
+                endDateInput.value = '';
+            }
+            
+            // Focus on end date input to show calendar
+            endDateInput.focus();
+        });
 
         let autocomplete;
             autocompleteOrgin = new google.maps.places.Autocomplete(
@@ -117,6 +141,27 @@ window.addEventListener('load', () => {
         } else {
             console.error('No valid trips to submit');
         }
+    });
+
+    // Add date validation logic for initial trip form
+    const initialStartDate = document.getElementById('startdate');
+    const initialEndDate = document.getElementById('enddate');
+
+    // Set maximum date for end date to today
+    const today = new Date().toISOString().split('T')[0];
+    initialEndDate.max = today;
+
+    initialStartDate.addEventListener('change', (e) => {
+        // Set minimum date for end date input to the selected start date
+        initialEndDate.min = e.target.value;
+        
+        // Clear end date if it's before start date
+        if (initialEndDate.value && initialEndDate.value < e.target.value) {
+            initialEndDate.value = '';
+        }
+        
+        // Focus on end date input to show calendar
+        initialEndDate.focus();
     });
 });
 

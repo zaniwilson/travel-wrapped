@@ -371,7 +371,7 @@ function createWorldMap(travelData) {
                     playButton.text('Play');
                 } else {
                     timer = setInterval(() => {
-                        currentValue = new Date(currentValue.getTime() + 86400000); // Add one day
+                        currentValue = new Date(currentValue.getTime() + (86400000 * 3));
                         if (currentValue > endDate) {
                             clearInterval(timer);
                             playButton.text('Play');
@@ -380,7 +380,7 @@ function createWorldMap(travelData) {
                         }
                         handle.attr('cx', timeScale(currentValue));
                         updatePoints(currentValue);
-                    }, 100);
+                    }, 50);
                     playButton.text('Pause');
                 }
                 playing = !playing;
